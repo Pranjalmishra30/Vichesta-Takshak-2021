@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 
+# ROS node to kill the exploration node once the target is reached  
+
 import rospy
 import os
 import math
@@ -12,7 +14,6 @@ from move_base_msgs.msg import MoveBaseActionGoal
 # gate_barrier = 7
 
 def pose_callback(msg):
-    
     # set additional offset
     offset = 2
     # calc the avg x position of the gates
@@ -26,7 +27,6 @@ def pose_callback(msg):
     gate_barrier = avg_x/c - offset
 
 def move_base_callback(msg):
-
     global dist_to_goal
 
     x = msg.goal.target_pose.pose.position.x - current_pose.pose.position.x
@@ -35,9 +35,7 @@ def move_base_callback(msg):
 
     dist_to_goal = math.sqrt(x**2 + y**2 + z**2) 
 
-
-def odom_callback(msg):
-    
+def odom_callback(msg):    
     global current_x, current_pose
     current_pose = PoseStamped()
     current_pose.pose = msg.pose.pose
@@ -50,7 +48,6 @@ def save_map():
     os.system("rosrun map_server map_saver -f arena_map")
 
 def stop_move_base():
-
     pub = rospy.Publisher('/move_base_simple/goal',PoseStamped,queue_size=10)
 
     goal = copy.deepcopy(current_pose)

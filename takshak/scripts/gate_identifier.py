@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# this node will sub from image. depth, aruco dictionary and pub to gate_poses and rviz markers
+# ROS node to sub from image. depth, aruco dictionary and pub to gate_poses and rviz markers
 from copy import copy
 import rospy
 import cv2

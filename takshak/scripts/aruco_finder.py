@@ -2,6 +2,7 @@
 
 # ROS node to subscribe to the raw image, find the aruco markers and get the corresponding
 # BGR value. Then publish to a topic /DictPub 
+
 import roslib
 roslib.load_manifest('takshak')
 import sys
@@ -16,7 +17,6 @@ import numpy as np
 class image_converter:
 
   def __init__(self):
-
     rospy.init_node('aruco_finder', anonymous=True)
     self.dict_pub = rospy.Publisher("/ArucoDict",IntColor,queue_size=10)
     self.Dict = IntColor()
@@ -25,7 +25,6 @@ class image_converter:
     self.image_sub = rospy.Subscriber("/camera/color/image_raw",Image,self.callback)
   
   def callback(self,data):
-    
     try:
       cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
     except CvBridgeError as e:
@@ -66,7 +65,6 @@ class image_converter:
     # cv2.imshow("frame",cv_image)
     # cv2.waitKey(3)
     
-
     try:
         flat_colorList = list(np.concatenate(colourList).flat)
         self.Dict.num=markerList

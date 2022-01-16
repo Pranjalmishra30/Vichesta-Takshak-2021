@@ -30,11 +30,8 @@ for i in msg.gates:
     table[i] = [ msg.gate_poses.poses[j+0], msg.gate_poses.poses[j+1], msg.gate_poses.poses[j+2] ]
     j += 3
 
-# print(table)
-# from the map
 count = count_balls()
 
-# lessgo
 steps = table[count]
 for step in steps:
 
