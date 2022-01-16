@@ -1,3 +1,13 @@
+# TO DO  
+1. Test on legion  
+2. Clean up code  
+3. Take pictures  
+4. Document
+
+
+
+
+
 # Team: ROSManipal-RM
 Submission for Takshak-Vichesta, pan-india robotics competition organised by IIT-Dhanbad. View it [here](https://drive.google.com/drive/u/1/folders/1RB3HhomwGslC3dvN9G3or7PAeE64e1Ou)  
   
