@@ -1,0 +1,7 @@
+<launch>
+
+    <node name="image_converter" pkg="takshak" type="aruco_finder.py"/>
+    <node name="gate_identifier" pkg="takshak" type="gate_identifier.py"/>
+    <node name="exploration_killer" pkg="takshak" type="exploration_killer.py"/>
+    
+</launch>

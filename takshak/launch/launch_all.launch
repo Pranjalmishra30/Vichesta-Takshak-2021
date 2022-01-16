@@ -1,0 +1,11 @@
+<launch>
+<include file="$(find takshak)/launch/world1.launch"/>
+<include file="$(find takshak)/launch/move_base.launch"/>
+<include file="$(find takshak)/launch/gmapping.launch"/>
+<include file="$(find takshak)/launch/exploration.launch"/>
+
+<node name="aruco_detection" pkg="takshak" type="aruco_finder.py"/>
+<node name="gate_identifier" pkg="takshak" type="gate_identifier.py"/>
+<node name="exploration_killer" pkg="takshak" type="exploration_killer.py"/>
+
+</launch>
